@@ -15,8 +15,8 @@ $defaultLineHeight: 1.4;
    Base styles: opinionated defaults
    ========================================================================== */
 html {
-    background: $defaultPageBackground;
-    color: $defaultFontColor;
+    background: $jetBlack;
+    color: $whisperWhite;
     font-size: $defaultFontSize;
     line-height: $defaultLineHeight;
 }
@@ -79,50 +79,80 @@ textarea {
 body {
   font-size: 14px;
   color: $whisper;
-  font-family: "Lobster", cursive;
-  display: block;
-  width: 80%;
-  height: 80%;
+  font-family: 'Open Sans', sans-serif;
   min-height: auto;
   margin: 30px auto 0 auto;
   background-color: $jetBlack;
-  padding: 0px;
-  overflow-y: auto;
-  box-shadow: -1px 2px 2px 0px #555, inset 0 0 10px 0 #555;
   letter-spacing: 0.4em;
+  border: 1px solid $whisper;
 }
 
-
-.Aligner {
+.logo_parent {
+  margin: auto;
   display: flex;
-  align-items: center;
-  min-height: 24em;
+  width: 100%;
+  min-height: 600px;
+  height: 100%;
+  padding: 5px;
+//  border: 1px solid #23ff00;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .logo_child {
+    display: flex;
+    font-family: 'Lobster', cursive;
+    font-size: 84px;
+    padding: 5px;
+    margin: 5px;
+//    border: 1px solid #23ff00;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .logo_img {
+      display: block;
+      position: relative;
+      // border: 1px solid #23ff34;
+      padding: 10px;
+      width: 558px;
+      height: 188px;
+      color: $whisperWhite;
+
+      .logo_img_main {
+        display: block;
+        position: absolute;
+        /* top: auto;
+        left: auto; */
+        width: 558px;
+        height: 188px;
+        // border: 1px solid #23ff00;
+        z-index: 10 ;
+      }
+
+      .logo_img_flash {
+        display: block;
+        position: relative;
+        top: -45px;
+        left: 410px;
+        width: 160px;
+        height: 155px;
+        // border: 1px solid #23ff00;
+        z-index: 100;
+        filter: blur(1px) hue-rotate(90deg);
+      }
+
+  }
+
+  .logo_type {
+    font-family: 'Lobster', cursive;
+    font-size: 100px;
+    color: $whisperWhite;
+    //border: 1px solid #23ff00;
+  }
 }
 
-.Aligner-item {
-  flex: 1;
-  max-width: 50%;
-  background-color: $defaultDebugColor;
 }
-
-.Aligner-item--top {
-  align-self: flex-start;
-}
-
-.Aligner-item--bottom {
-  align-self: flex-end;
-}
-
-.Aligner-item--fixed {
-  flex: none;
-  max-width: 50%;
-}
-
-
-
-
-
 
 /* ==========================================================================
    Media Queries
