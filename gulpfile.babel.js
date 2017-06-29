@@ -4,8 +4,10 @@ const gulp = require('gulp'),
  babel = require('gulp-babel'),
  print = require('gulp-print');
 
-const buildPath = './app/build';
-const sourcePath = './app/src';
+const appPath = './app';
+const buildPath = `${appPath}/build`;
+const sourcePath = `${appPath}/src`;
+const distPath = `${appPath}/dist`;
 
 const cssPath = `${buildPath}/css/`;
 const imgPath = `${buildPath}/img/`;
@@ -17,7 +19,9 @@ const allHtmlPath = `${sourcePath}/**/*.html`;
 const allSassPath = `${sourcePath}/css/sass/**/*.scss`;
 const allImgPath = `${sourcePath}/img/**/*.*`;
 const allCssPath = `${sourcePath}/css/*.min.css`;
-const allJSPath = `${sourcePath}/js/**/*.js`;
+//const allJSPath = `${sourcePath}/js/**/*.js`;
+const customJSPath = `${sourcePath}/js/*.js`;
+const vendorJSPath = `${sourcePath}/js/vendor/**/*.js`;
 const allFontPath = `${sourcePath}/font/*.ttf`;
 
 
@@ -44,10 +48,21 @@ gulp.task('sass:watch', () => {
   gulp.watch(`${allSassPath}`, ['sass']);
 });
 
+/* Move vendore js to the corresponding build folder */
+gulp.task('vendorJS', () =>{
+  return gulp.src(`${vendorJSPath}`)
+    .pipe(print(filePath => {
+      return `Copying -> ${filePath}`;
+    }))
+    .pipe(gulp.dest(`${jsPath}`));
+});
+
 /*JS Processing and copy */
-gulp.task('js', () => {
-  return gulp.src(`${allJSPath}`)
-    .pipe(print())
+gulp.task('js', ['vendorJS'], () => {
+  return gulp.src(`${customJSPath}`)
+    .pipe(print(filePath => {
+        return `Transpiling -> ${filePath}`;
+    }))
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(gulp.dest(`${jsPath}`));
 });
