@@ -84,15 +84,15 @@ body {
   margin: 30px auto 0 auto;
   background-color: $jetBlack;
   letter-spacing: 0.4em;
-  border: 1px solid $whisper;
+  // border: 1px solid $whisper;
 }
 
 .logo_parent {
   margin: auto;
   display: flex;
   width: 100%;
-  min-height: 600px;
-  height: 100%;
+  /*min-height: 600px;
+  height: 100%;*/
   padding: 5px;
 //  border: 1px solid #23ff00;
   justify-content: center;
@@ -101,8 +101,6 @@ body {
 
   .logo_child {
     display: flex;
-    font-family: 'Lobster', cursive;
-    font-size: 84px;
     padding: 5px;
     margin: 5px;
 //    border: 1px solid #23ff00;
@@ -149,6 +147,11 @@ body {
     font-size: 100px;
     color: $whisperWhite;
     //border: 1px solid #23ff00;
+  }
+  .tag_line {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    color: $whisperWhite;
   }
 }
 
