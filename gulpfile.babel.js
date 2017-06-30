@@ -21,7 +21,7 @@ const allCssPath = `${sourcePath}/css/**/*.min.css`;
 
 //const allJSPath = `${sourcePath}/js/**/*.js`;
 const customJSPath = `${sourcePath}/js/*.js`;
-const vendorJSPath = `${sourcePath}/js/vendor/**/*.js`;
+const vendorJSPath = `${sourcePath}/js/**/*.js`;
 
 const allImgPath = `${sourcePath}/img/**/*.*`;
 const pngImgPath =`${sourcePath}/img/**/*.png`;
